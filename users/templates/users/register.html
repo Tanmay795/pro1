@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+{%load crispy_forms_tags%}
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> Register Page </title>
+<style>
+Body {
+  font-family: Calibri, Helvetica, sans-serif;
+  background-color: pink;
+}
+button {
+       background-color: #4CAF50;
+       width: 100%;
+        color: orange;
+        padding: 15px;
+        margin: 10px 0px;
+        border: none;
+        cursor: pointer;
+         }
+ form {
+        border: 3px solid #f1f1f1;
+    }
+ input[type=email], input[type=password], input[type=text] {
+        width: 100%;
+        margin: 8px 0;
+        padding: 12px 20px;
+        display: inline-block;
+        border: 2px solid green;
+        box-sizing: border-box;
+    }
+
+ button:hover {
+        opacity: 0.7;
+    }
+  .cancelbtn {
+        width: auto;
+        padding: 10px 18px;
+        margin: 10px 5px;
+    }
+
+
+ .container {
+        padding: 25px;
+        background-color: lightblue;
+    }
+</style>
+</head>
+<script type="text/javascript">
+  function matchPassword(form) {
+  pw1 = form.p1.value;
+  pw2 = form.p2.value;
+  if (pw1 != pw2) {
+            alert("Passwords do not match.");
+            return false;
+        }
+        return true;
+}
+
+</script>
+<body>
+<center> <h1> Signup Form </h1> </center>
+  <form action="." method="POST">
+  {% csrf_token %}
+  {{form|crispy}}
+
+  <button type="submit">Sign up</button>
+  </form>
+
+</body>
+</html>
